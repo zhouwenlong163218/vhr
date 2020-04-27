@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.vhr.mapper.SalaryMapper">
+  <resultMap id="BaseResultMap" type="com.example.vhr.model.Salary">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="basicSalary" jdbcType="INTEGER" property="basicsalary" />
+    <result column="bonus" jdbcType="INTEGER" property="bonus" />
+    <result column="lunchSalary" jdbcType="INTEGER" property="lunchsalary" />
+    <result column="trafficSalary" jdbcType="INTEGER" property="trafficsalary" />
+    <result column="allSalary" jdbcType="INTEGER" property="allsalary" />
+    <result column="pensionBase" jdbcType="INTEGER" property="pensionbase" />
+    <result column="pensionPer" jdbcType="REAL" property="pensionper" />
+    <result column="createDate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="medicalBase" jdbcType="INTEGER" property="medicalbase" />
+    <result column="medicalPer" jdbcType="REAL" property="medicalper" />
+    <result column="accumulationFundBase" jdbcType="INTEGER" property="accumulationfundbase" />
+    <result column="accumulationFundPer" jdbcType="REAL" property="accumulationfundper" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, basicSalary, bonus, lunchSalary, trafficSalary, allSalary, pensionBase, pensionPer, 
+    createDate, medicalBase, medicalPer, accumulationFundBase, accumulationFundPer, name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from salary
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from salary
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.vhr.model.Salary">
+    insert into salary (id, basicSalary, bonus, 
+      lunchSalary, trafficSalary, allSalary, 
+      pensionBase, pensionPer, createDate, 
+      medicalBase, medicalPer, accumulationFundBase, 
+      accumulationFundPer, name)
+    values (#{id,jdbcType=INTEGER}, #{basicsalary,jdbcType=INTEGER}, #{bonus,jdbcType=INTEGER}, 
+      #{lunchsalary,jdbcType=INTEGER}, #{trafficsalary,jdbcType=INTEGER}, #{allsalary,jdbcType=INTEGER}, 
+      #{pensionbase,jdbcType=INTEGER}, #{pensionper,jdbcType=REAL}, #{createdate,jdbcType=TIMESTAMP}, 
+      #{medicalbase,jdbcType=INTEGER}, #{medicalper,jdbcType=REAL}, #{accumulationfundbase,jdbcType=INTEGER}, 
+      #{accumulationfundper,jdbcType=REAL}, #{name,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.vhr.model.Salary">
+    insert into salary
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="basicsalary != null">
+        basicSalary,
+      </if>
+      <if test="bonus != null">
+        bonus,
+      </if>
+      <if test="lunchsalary != null">
+        lunchSalary,
+      </if>
+      <if test="trafficsalary != null">
+        trafficSalary,
+      </if>
+      <if test="allsalary != null">
+        allSalary,
+      </if>
+      <if test="pensionbase != null">
+        pensionBase,
+      </if>
+      <if test="pensionper != null">
+        pensionPer,
+      </if>
+      <if test="createdate != null">
+        createDate,
+      </if>
+      <if test="medicalbase != null">
+        medicalBase,
+      </if>
+      <if test="medicalper != null">
+        medicalPer,
+      </if>
+      <if test="accumulationfundbase != null">
+        accumulationFundBase,
+      </if>
+      <if test="accumulationfundper != null">
+        accumulationFundPer,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="basicsalary != null">
+        #{basicsalary,jdbcType=INTEGER},
+      </if>
+      <if test="bonus != null">
+        #{bonus,jdbcType=INTEGER},
+      </if>
+      <if test="lunchsalary != null">
+        #{lunchsalary,jdbcType=INTEGER},
+      </if>
+      <if test="trafficsalary != null">
+        #{trafficsalary,jdbcType=INTEGER},
+      </if>
+      <if test="allsalary != null">
+        #{allsalary,jdbcType=INTEGER},
+      </if>
+      <if test="pensionbase != null">
+        #{pensionbase,jdbcType=INTEGER},
+      </if>
+      <if test="pensionper != null">
+        #{pensionper,jdbcType=REAL},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="medicalbase != null">
+        #{medicalbase,jdbcType=INTEGER},
+      </if>
+      <if test="medicalper != null">
+        #{medicalper,jdbcType=REAL},
+      </if>
+      <if test="accumulationfundbase != null">
+        #{accumulationfundbase,jdbcType=INTEGER},
+      </if>
+      <if test="accumulationfundper != null">
+        #{accumulationfundper,jdbcType=REAL},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.vhr.model.Salary">
+    update salary
+    <set>
+      <if test="basicsalary != null">
+        basicSalary = #{basicsalary,jdbcType=INTEGER},
+      </if>
+      <if test="bonus != null">
+        bonus = #{bonus,jdbcType=INTEGER},
+      </if>
+      <if test="lunchsalary != null">
+        lunchSalary = #{lunchsalary,jdbcType=INTEGER},
+      </if>
+      <if test="trafficsalary != null">
+        trafficSalary = #{trafficsalary,jdbcType=INTEGER},
+      </if>
+      <if test="allsalary != null">
+        allSalary = #{allsalary,jdbcType=INTEGER},
+      </if>
+      <if test="pensionbase != null">
+        pensionBase = #{pensionbase,jdbcType=INTEGER},
+      </if>
+      <if test="pensionper != null">
+        pensionPer = #{pensionper,jdbcType=REAL},
+      </if>
+      <if test="createdate != null">
+        createDate = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="medicalbase != null">
+        medicalBase = #{medicalbase,jdbcType=INTEGER},
+      </if>
+      <if test="medicalper != null">
+        medicalPer = #{medicalper,jdbcType=REAL},
+      </if>
+      <if test="accumulationfundbase != null">
+        accumulationFundBase = #{accumulationfundbase,jdbcType=INTEGER},
+      </if>
+      <if test="accumulationfundper != null">
+        accumulationFundPer = #{accumulationfundper,jdbcType=REAL},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.vhr.model.Salary">
+    update salary
+    set basicSalary = #{basicsalary,jdbcType=INTEGER},
+      bonus = #{bonus,jdbcType=INTEGER},
+      lunchSalary = #{lunchsalary,jdbcType=INTEGER},
+      trafficSalary = #{trafficsalary,jdbcType=INTEGER},
+      allSalary = #{allsalary,jdbcType=INTEGER},
+      pensionBase = #{pensionbase,jdbcType=INTEGER},
+      pensionPer = #{pensionper,jdbcType=REAL},
+      createDate = #{createdate,jdbcType=TIMESTAMP},
+      medicalBase = #{medicalbase,jdbcType=INTEGER},
+      medicalPer = #{medicalper,jdbcType=REAL},
+      accumulationFundBase = #{accumulationfundbase,jdbcType=INTEGER},
+      accumulationFundPer = #{accumulationfundper,jdbcType=REAL},
+      name = #{name,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

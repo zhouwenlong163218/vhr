@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- 引入配置文件 -->
+	<properties resource="application.properties"/>
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+		<!-- 数据库连接 -->
+		<jdbcConnection driverClass="${spring.datasource.driver-class-name}"
+						connectionURL="${spring.datasource.url}"
+						userId="${spring.datasource.username}"
+						password="${spring.datasource.password}">
+			<!--防止生成其他库同名表-->
+			<property name="nullCatalogMeansCurrent" value="true"/>
+		</jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+		<!-- 数据表对应的 model层  -->
+        <javaModelGenerator targetPackage="com.example.vhr.model"
+                            targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+		<!-- sql mapper 映射配置文件 -->
+        <sqlMapGenerator targetPackage="com.example.vhr.mapper"
+                         targetProject="./src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+		<!-- 数据表对应的 mapper接口 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.vhr.mapper"
+                             targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="adjustsalary" domainObjectName="AdjustSalary" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+        <table tableName="appraise" domainObjectName="Appraise" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+        <table tableName="department" domainObjectName="Department" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+        <table tableName="employee" domainObjectName="Employee" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+        <table tableName="employeeec" domainObjectName="Employeeec" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+        <table tableName="employeeremove" domainObjectName="Employeeremove" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+        <table tableName="employeetrain" domainObjectName="Employeetrain" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+        <table tableName="empsalary" domainObjectName="EmpSalary" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+<!--        <table tableName="hr" domainObjectName="Hr" enableCountByExample="false"-->
+<!--			   enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false" selectByExampleQueryId="false"/>-->
+
+        <table tableName="hr_role" domainObjectName="HrRole" enableCountByExample="false"
+			   enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+        <table tableName="joblevel" domainObjectName="JobLevel" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+        <table tableName="menu" domainObjectName="Menu" enableCountByExample="false"
+			   enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+        <table tableName="menu_role" domainObjectName="MenuRole" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+        <table tableName="msgcontent" domainObjectName="MsgContent" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+        <table tableName="nation" domainObjectName="Nation" enableCountByExample="false"
+			   enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+        <table tableName="oplog" domainObjectName="OpLog" enableCountByExample="false"
+			   enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+        <table tableName="politicsstatus" domainObjectName="Politicsstatus" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+        <table tableName="position" domainObjectName="Position" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+        <table tableName="role" domainObjectName="Role" enableCountByExample="false"
+			   enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+        <table tableName="salary" domainObjectName="Salary" enableCountByExample="false"
+			   enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+        <table tableName="sysmsg" domainObjectName="SysMsg" enableCountByExample="false"
+			   enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+
+    </context>
+</generatorConfiguration>
